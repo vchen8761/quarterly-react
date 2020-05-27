@@ -3,8 +3,12 @@
 
   "name": "Quarterly",
   "description": "This extension promotes self-care every quarter of an hour.",
+  "permissions": ["alarms"],
   "version": "0.0.1",
-
+  "background": {
+    "scripts": ["background.js"],
+    "persistent":true
+  },
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Quarterly"
@@ -15,6 +19,5 @@
     "48":   "images/get_started48.png",
     "128":  "images/get_started128.png"
   },
-  "content_security_policy":"script-src 'self' https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com; object-src 'self'",
-  "permissions": []
+  "content_security_policy":"script-src 'self' https://stackpath.bootstrapcdn.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com; object-src 'self'"
 }

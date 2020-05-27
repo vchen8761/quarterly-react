@@ -12,6 +12,10 @@ function App() {
           <i> An app for selfcare. </i> <br></br>
             <strong> This timer will alert you every 15 minutes, or quarter of an hour, to practice selfcare.</strong>
         </p>
+        <p>
+          <button type="button" class="btn btn-primary" id="startAlarm"> Begin Selfcare!</button>
+          <button type="button" class="btn btn-primary" id="stopAlarm"> Stop Alarm!</button>
+        </p>
       </header>
     </div>
   );

@@ -37,3 +37,7 @@
   min-width:350px;
   text-align: center;
 }
+
+button {
+  margin: 10px;
+}
