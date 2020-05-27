@@ -4,20 +4,14 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div id="popup">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <b> Quarterly </b> <br></br>
+          <i> An app for selfcare. </i> <br></br>
+            <strong> This timer will alert you every 15 minutes, or quarter of an hour, to practice selfcare.</strong>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
