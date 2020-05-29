@@ -23,6 +23,7 @@ chrome.runtime.onMessage.addListener(message => {
         running = true;
         setInterval(function (){
             if(running) {
+                console.log('Sending message...');
                 chrome.runtime.sendMessage({event: "disableStartButton"});
             }
         }, 500)

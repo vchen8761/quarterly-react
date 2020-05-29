@@ -1,8 +1,27 @@
+/* global chrome */
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  function createAlarm() {
+    let startAlarm = document.getElementById('startAlarm');
+    let stopAlarm = document.getElementById('stopAlarm');
+    chrome.alarms.create('alarm', {periodInMinutes: 15});
+    startAlarm.innerHTML = "Alarm set!";
+    stopAlarm.innerHTML = "Stop Alarm!";
+    chrome.runtime.sendMessage({event: "alarmSet"});
+  }
+
+  function stopAlarm() {
+    let startAlarm = document.getElementById('startAlarm');
+    let stopAlarm = document.getElementById('stopAlarm');
+    stopAlarm.innerHTML = "Stopped alarms!";
+    startAlarm.disabled = false;
+    startAlarm.innerHTML = "Begin selfcare!";
+    chrome.runtime.sendMessage({event: "alarmStop"});
+  }
+
   return (
     <div id="popup">
       <header className="App-header">
@@ -13,8 +32,8 @@ function App() {
             <strong> This timer will alert you every 15 minutes, or quarter of an hour, to practice selfcare.</strong>
         </p>
         <p>
-          <button type="button" className="btn btn-primary" id="startAlarm"> Begin Selfcare!</button>
-          <button type="button" className="btn btn-primary" id="stopAlarm"> Stop Alarm!</button>
+          <button type="button" className="btn btn-primary" id="startAlarm" onClick={createAlarm}> Begin Selfcare!</button>
+          <button type="button" className="btn btn-primary" id="stopAlarm" onClick={stopAlarm}> Stop Alarm!</button>
         </p>
       </header>
     </div>
