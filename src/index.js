@@ -4,15 +4,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// var bootstrap = require('bootstrap');
+// var bootbox = require('bootbox');
 
 function checkDisabled() {
   let startAlarm = document.getElementById('startAlarm');
   chrome.runtime.onMessage.addListener(message => {
     if(message.event === "disableStartButton") {
-        startAlarm.disabled = true;
-        chrome.alarms.get('alarm', function (alarm){
-            startAlarm.innerHTML = (Math.round((alarm.scheduledTime - Date.now())/1000/60));
-        });
+      startAlarm.disabled = true;
+      chrome.alarms.get('alarm', function (alarm){
+          startAlarm.innerHTML = (Math.round((alarm.scheduledTime - Date.now())/1000/60));
+      });
     }
   });
 }
@@ -24,7 +26,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
 checkDisabled();
+// bootbox.alert('!');
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
